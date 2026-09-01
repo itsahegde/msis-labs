@@ -7,14 +7,14 @@ from sklearn.preprocessing import StandardScaler
 
 
 def build_and_train_pipeline(X_train, y_train, max_iter=1000):
-    """Builds a StandardScaler + LogisticRegression pipeline and fits it."""
+    
     pipeline = make_pipeline(StandardScaler(), LogisticRegression(max_iter=max_iter))
     pipeline.fit(X_train, y_train)
     return pipeline
 
 
 def evaluate_thresholds(pipeline, X_test, y_test, step=0.1):
-    """Evaluates classification metrics across probability thresholds from 0.1 to 0.9."""
+   
     y_probs = pipeline.predict_proba(X_test)[:, 1]
     thresholds = np.arange(0.1, 1.0, step)
 

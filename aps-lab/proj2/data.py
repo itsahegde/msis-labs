@@ -4,17 +4,13 @@ from sklearn.model_selection import train_test_split
 
 
 def get_data(test_size=0.2, random_state=42):
-    """Loads breast cancer dataset, remaps targets, prints class distribution,
 
-    and returns stratified train/test splits.
-    """
     raw_data = load_breast_cancer()
 
     X = pd.DataFrame(raw_data.data, columns=raw_data.feature_names)
-    # Remap original target so 1 = malignant, 0 = benign
+    
     y = pd.Series((raw_data.target == 0).astype(int), name="malignant")
 
-    # Print class distribution information
     class_counts = y.value_counts().sort_index()
     class_distribution = pd.DataFrame(
         {
