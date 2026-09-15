@@ -1,0 +1,19 @@
+linspace_configs:
+  - start: 0
+    stop: 100
+    num: 200
+  - start: 0
+    stop: 200
+    num: 300
+  - start: 10
+    stop: 150
+    num: 250
+
+dataset:
+  test_sizes: [0.2, 0.25, 0.3]
+  random_state: 42
+  noise_mean: 50
+  stddev: 15
+
+model:
+  degrees: [1, 2, 3, 4, 5, 10]
