@@ -1,3 +1,5 @@
+# bst 
+
 class TreeNode:
     def __init__(self, data):
         self.data = data
@@ -14,6 +16,23 @@ def insert(node, val):
             node.left = insert(node.left, val)
     return node
 
+def inser_it(node, val):
+    new_node = TreeNode(val)
+    curr = node
+    if node is None:
+        return new_node
+    while True:
+        if curr.val > val:
+            if curr.left is None:
+                curr.left = new_node
+            curr = curr.left
+        elif curr.val < val:
+            if curr.right is None:
+                curr.right = new_node
+            curr = curr.right
+        else:
+            return node
+
 def search(node, target):
     if node is None:
         return None
@@ -23,6 +42,17 @@ def search(node, target):
         return search(node.right, target)
     else:
         return search(node.left, target)
+
+def search_it(node, target):
+    curr = node
+    while curr is not None:
+        if curr.val > target:
+            curr = curr.left
+        elif curr.val < target:
+            curr = curr.right
+        else:
+            return curr
+    return None
 
 def minvaluenode(node):
     curr = node

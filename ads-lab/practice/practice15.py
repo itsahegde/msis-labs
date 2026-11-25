@@ -1,5 +1,6 @@
 import heapq
 
+
 def prim(graph, start):
     vis = set()
     mst = []
